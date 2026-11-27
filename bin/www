@@ -1,0 +1,18 @@
+#!/usr/bin/env node
+const http = require('http');
+const debug = require('debug')('tik:server');
+const app = require('../app');
+const port = normalizePort(process.env.PORT || '3000');
+app.set('port', port);
+const server = http.createServer(app);
+server.listen(port);
+server.on('error', onError);
+server.on('listening', () => debug(`Сервер запущен на порту ${port}`));
+function normalizePort(value) { const parsed = parseInt(value, 10); return Number.isNaN(parsed) ? value : parsed >= 0 ? parsed : false; }
+function onError(error) {
+  if (error.syscall !== 'listen') throw error;
+  const bind = typeof port === 'string' ? `Pipe ${port}` : `Port ${port}`;
+  if (error.code === 'EACCES') { console.error(`${bind} требует повышенных прав`); process.exit(1); }
+  if (error.code === 'EADDRINUSE') { console.error(`${bind} уже используется`); process.exit(1); }
+  throw error;
+}
