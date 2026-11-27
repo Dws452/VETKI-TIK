@@ -1,0 +1,6 @@
+module.exports = [
+  { title: 'Фишинговая кампания с поддельной страницей входа', category: 'Phishing', severity: 'High', status: 'Investigating', source: 'Internal SOC', description: 'Письма имитируют уведомление корпоративного портала и ведут на поддельную форму авторизации.', tags: ['credential-theft', 'email'], createdAt: new Date('2026-11-24') },
+  { title: 'Подозрительная активность PowerShell', category: 'Malware', severity: 'Critical', status: 'Contained', source: 'EDR alert', description: 'Обнаружен запуск PowerShell с закодированной командой на рабочей станции.', tags: ['powershell', 'execution'], createdAt: new Date('2026-11-22') },
+  { title: 'Сканирование внешнего периметра', category: 'Reconnaissance', severity: 'Medium', status: 'Monitoring', source: 'Firewall', description: 'Серия соединений к нескольким публичным сервисам с одного адреса.', tags: ['scan', 'network'], createdAt: new Date('2026-11-20') },
+  { title: 'Подозрительный домен в DNS-запросах', category: 'Command and Control', severity: 'High', status: 'Investigating', source: 'DNS monitor', description: 'Домен имеет признаки недавно созданной инфраструктуры управления.', tags: ['dns', 'c2'], createdAt: new Date('2026-11-18') }
+];
